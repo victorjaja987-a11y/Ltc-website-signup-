@@ -1,0 +1,102 @@
+@import "@fontsource/oswald/400.css";
+@import "@fontsource/oswald/500.css";
+@import "@fontsource/oswald/600.css";
+@import "@fontsource/oswald/700.css";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 120 25% 8%;
+    --foreground: 0 0% 100%;
+    --card: 120 30% 12%;
+    --card-foreground: 0 0% 100%;
+    --popover: 120 30% 12%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 72 100% 50%;
+    --primary-foreground: 120 30% 10%;
+    --secondary: 120 35% 15%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 120 20% 20%;
+    --muted-foreground: 120 10% 70%;
+    --accent: 320 70% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 75% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 120 20% 25%;
+    --input: 120 20% 20%;
+    --ring: 72 100% 50%;
+    --radius: 0.5rem;
+    --ltc-forest: 120 40% 10%;
+    --ltc-lime: 72 100% 50%;
+    --ltc-lime-dark: 72 80% 40%;
+    --ltc-red: 0 75% 50%;
+    --ltc-purple: 320 70% 45%;
+    --ltc-gold: 45 90% 55%;
+    --ltc-white: 0 0% 100%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
+}
+
+@layer components {
+  .ltc-heading {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .ltc-input {
+    @apply w-full px-4 py-3 rounded-lg border-2 transition-all duration-200;
+    background-color: hsl(var(--muted));
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+  }
+  .ltc-input:focus {
+    @apply outline-none;
+    border-color: hsl(var(--ltc-lime));
+    box-shadow: 0 0 0 3px hsl(var(--ltc-lime) / 0.2);
+  }
+  .ltc-button {
+    @apply px-8 py-4 rounded-lg font-semibold uppercase tracking-wide transition-all duration-200;
+    font-family: 'Oswald', sans-serif;
+    background-color: hsl(var(--ltc-lime));
+    color: hsl(var(--ltc-forest));
+  }
+  .ltc-button:hover:not(:disabled) {
+    background-color: hsl(var(--ltc-lime-dark));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px hsl(var(--ltc-lime) / 0.3);
+  }
+  .ltc-label {
+    @apply block mb-2 font-medium text-sm uppercase tracking-wider;
+    color: hsl(var(--ltc-lime));
+    font-family: 'Oswald', sans-serif;
+  }
+  .ltc-error { @apply text-sm mt-1; color: hsl(var(--ltc-red)); }
+  .ltc-select {
+    @apply w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 appearance-none cursor-pointer;
+    background-color: hsl(var(--muted));
+    border-color: hsl(var(--border));
+    color: hsl(var(--foreground));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2383ff00'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 20px;
+  }
+  .ltc-price-badge { font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase; }
+  .ltc-price-red { background-color: hsl(var(--ltc-red)); color: hsl(var(--ltc-white)); }
+  .ltc-price-lime { background-color: hsl(var(--ltc-lime)); color: hsl(var(--ltc-forest)); }
+}
